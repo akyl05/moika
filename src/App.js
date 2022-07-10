@@ -35,7 +35,7 @@ const addPost = (e)=>{
   
  
   if(value.price.length === 0){
-    toast("Price doesn't should be empty")
+    toast("Необходимо указать цену!")
   }else{
     setPost([...post,{...value, id:Date.now()}])
     setPrice(price + 1)
@@ -57,21 +57,33 @@ useEffect(()=>{
   return (
     <div className="App">
       <form >
-    <input placeholder='mark' type="a-z" onChange={e => setValue({...value,mark:e.target.value})} value={value.mark}/>
-    <input placeholder='price' type="number" onChange={e => setValue({...value,price:e.target.value})} value={value.price} />
+    <select onChange={e => setValue({...value,mark:e.target.value})} value={value.mark} name="mark" >
+
+      <option value="другая машина">другая машина</option>
+      <option value="Toyota">Toyota</option>
+      <option value="Subaru">Subaru</option>
+      <option value="Mersedes">Merseder</option>
+      <option value="Honda">Honda</option>
+      <option value="Nissan">Nissan</option>
+      <option value="Jiga">Jiga</option>
+      <option value="Lexus">Lexus</option>
+      <option value="Bmw">Bmw</option>
+      
+    </select>
+    <input placeholder='цена' type="number" min={50} step={50} max={1000} onChange={e => setValue({...value,price:e.target.value})} value={value.price} />
     <button onClick={addPost}>+</button>
 
       </form>
       <div>
         {post.length === 0 ?
-          <h1 style={{textAlign:'center'}}>has not car</h1>:
+          <h2 className='h1' style={{textAlign:'center'}}>нет машин !</h2>:
           post.map((item,index)=>{
             return(
 
 
               <div  className='posts' key={index}>
-                <div><h1>mark : <span>{item.mark}</span></h1></div>
-                <div><h1>{item.price} som</h1></div>
+                <div><h1>марка  : <span>{item.mark.length === 0? 'другая машина' : item.mark}</span></h1></div>
+                <div><h1>{item.price} сом</h1></div>
                 
               </div>
 
@@ -79,13 +91,13 @@ useEffect(()=>{
             )
           })
         }
-        <div style={{display:'flex',justifyContent:'center',fontSize:'20px'}}><p>today cars: {price}</p></div>
+        <div style={{display:'flex',justifyContent:'center',fontSize:'20px'}}><p>сегодня автомобили: {price}</p></div>
 
        
       </div>
         <ToastContainer/>
       <div style={{textAlign:'center'}}>
-      <button onClick={deleteAll} style={{width:'100px',color:'red'}}>Delete all</button>
+      <button onClick={deleteAll} style={{width:'100px',color:'red'}}>удалить все</button>
       </div>
     </div>
   );

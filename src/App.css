@@ -11,7 +11,7 @@ form {
 }
 
 input {
-    border: 1px solid #000;
+    border: 1px solid rgb(231, 231, 231);
     box-shadow: #000;
     margin-bottom: 10px;
     height: 30px;
@@ -19,11 +19,28 @@ input {
     color: #fff;
     border-radius: 10px;
     padding-left: 10px;
-    box-shadow: rgba(0, 0, 0, 0.657) 0px 5px 15px;
+    box-shadow: rgba(255, 254, 254, 0.555) 0px 5px 15px;
+}
+
+.option {
+    color: rgba(255, 255, 255, 0.253);
 }
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.44);
+}
+
+select {
+    padding: 5px;
+    border: 1px solid rgb(226, 226, 226);
+    box-shadow: #000;
+    margin-bottom: 10px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.479);
+    color: #fff;
+    border-radius: 10px;
+    padding-left: 10px;
+    box-shadow: rgba(255, 254, 254, 0.555) 0px 5px 15px;
 }
 
 button {
@@ -58,6 +75,11 @@ p {
     height: 60px;
     border-radius: 10px;
     border: 1px solid #fff;
+}
+
+h2 {
+    color: rgba(255, 0, 0, 0.736);
+    font-size: 25px;
 }
 
 span {
